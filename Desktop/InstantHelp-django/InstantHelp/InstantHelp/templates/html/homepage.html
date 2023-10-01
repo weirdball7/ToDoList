@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+    <title>InstantHelp - home</title>
+    <style>
+        /* Set background images using CSS */
+        #greeting-area {
+            background-image: url("{% static 'images/family-with-dog.jpeg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        #about-us {
+            background-image: url("{% static 'images/therapiest-with-patient.jpeg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        #about-us2 {
+            background-image: url("{% static 'images/head-sun.jpeg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <ul>
+        <li><a href="#">Who are we?</a></li>
+        <li><a href="#">Talk to a therapist</a></li>
+        <li><a href="#">Sign up</a></li>
+    </ul>
+</header>
+<section id="greeting-area">
+    <div id="greeting-div">
+        <h1>Hello and welcome to Instant Help</h1>
+        <p>Where help is only a few clicks away</p>
+    </div>
+</section>
+<section id="about-us">
+    <div id="info-div">
+        <h2>A little bit about us</h2>
+        <p id="info-paragraph">Welcome to InstantHelp - Your Trusted Companion on the Journey to Mental Wellness!
+            At InstantHelp, we understand the importance of mental health and the challenges individuals face on their path to well-being. Our mission is to provide a safe, supportive space for individuals to connect with licensed therapists, even between sessions.</p>
+        <br>
+    </div>
+</section>
+<section id="about-us2">
+    <div id="info-div2">
+        <h3>Our Vision</h3>
+        <p id="info-paragraph">Envision a world where mental health support is accessible, immediate, and personalized. We believe that everyone deserves to have a listening ear and professional guidance at their fingertips, especially when navigating life's complexities.</p>
+    </div>
+</section>
+
+</body>
+</html>
