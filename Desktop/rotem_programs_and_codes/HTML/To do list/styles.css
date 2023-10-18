@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@300&display=swap');
+
+
+
+
+body{
+    /* max-width: 70%; */
+    background-color: #36506C;
+    text-align: center;
+    font-family: 'Roboto mono';
+    color: #EBF7FD;
+}
+
+.task-input{
+    display: block;
+    margin: 10px auto;
+}
+
+.task-container {
+    color: #233142;
+    background-color: #A5DEF1;
+    border-radius: 15px;
+    border: 1px solid black;
+    margin-top: 25px;
+    max-width: 10%;
+    min-width: 200px;
+    font-family: 'Arial';
+    margin: 10px 5px;
+}
+
+.task-list {
+    margin-top: 25px;
+    border-top: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Two columns */
+    gap: 3px; /* Add spacing between columns and rows */
+    align-items: center;
+}
+
+
+.task-input {
+    width: 175px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+.update {
+    width: 75px;
+    height: 35px;
+    background-color: #A4D7E1;
+    border: none;
+    border-radius: 15px;
+    transition: 0.7s ease;
+}
+
+.update:hover {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.task-option1 {
+    background-color: #F24C3D;
+}
+
+.task-option2 {
+    background-color: #F2BE22;
+}
+
+.task-option3 {
+    background-color: #22A699;
+    margin-bottom: 0;
+}
+
+.task-option1,
+.task-option2,
+.task-option3 {
+    color: #303030;
+    width: 65px;
+    height: 50px;
+    margin: 5px 5px;
+    border-radius: 15px;
+    border: none;
+    transition: 0.7s ease;
+}
+
+.task-option1:hover,
+.task-option2:hover,
+.task-option3:hover {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.task-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
