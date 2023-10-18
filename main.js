@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskList = document.getElementById("task-list");
     const updateButton = document.getElementById("update");
 
+    // Global variables
+    var taskContainer;
+    var taskDetail;
+    var taskOption1;
+    var taskOption2;
+    var taskOption3;
+    var previousClickedButton; // Store the previously clicked button
+
     // Add an event listener to the "Update" button
     updateButton.addEventListener("click", addTask);
 
@@ -13,26 +21,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (newTaskText.trim() !== "") {
             // Create a new task container div
-            const taskContainer = document.createElement("div");
+            taskContainer = document.createElement("div");
             taskContainer.classList.add("task-container");
 
             // Create a paragraph for the task text
-            const taskDetail = document.createElement("p");
+            taskDetail = document.createElement("p");
             taskDetail.textContent = newTaskText;
             taskDetail.classList.add("task-detail");
 
             // Create buttons for task options
-            const taskOption1 = document.createElement("button");
+            taskOption1 = document.createElement("button");
             taskOption1.textContent = "Not Done";
             taskOption1.classList.add("task-option1");
 
-            const taskOption2 = document.createElement("button");
+            taskOption2 = document.createElement("button");
             taskOption2.textContent = "In Progress";
             taskOption2.classList.add("task-option2");
 
-            const taskOption3 = document.createElement("button");
+            taskOption3 = document.createElement("button");
             taskOption3.textContent = "Done";
             taskOption3.classList.add("task-option3");
+
+            // Add event listeners for the task buttons
+            taskOption1.addEventListener('click', taskIncomplete);
+            taskOption2.addEventListener('click', taskPending);
+            taskOption3.addEventListener('click', taskComplete);
 
             // Append elements to the task container
             taskContainer.appendChild(taskDetail);
@@ -42,9 +55,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Append the new task container to the task list
             taskList.appendChild(taskContainer);
+            taskIncomplete();
 
             // Clear the input field
             taskInput.value = "";
         }
     }
+
+    const resetButtonColors = () => {
+        if (previousClickedButton === taskOption3) {
+            previousClickedButton.style.backgroundColor = '#22A699'; // Replace with your original color
+        }
+        
+        if (previousClickedButton === taskOption2) {
+            previousClickedButton.style.backgroundColor = '#F2BE22'; // Replace with your original color
+        }
+        
+        if (previousClickedButton === taskOption1) {
+            previousClickedButton.style.backgroundColor = '#F24C3D';
+        }
+    };
+
+    const taskComplete = () => {
+        console.log('Task Completed');
+        taskContainer.style.backgroundColor = 'rgba(63, 191, 4, 0.7)';
+        taskOption3.style.backgroundColor = 'rgba(97, 88, 87, 0.7)';
+        resetButtonColors();
+        previousClickedButton = taskOption3;
+    };
+
+    const taskPending = () => {
+        console.log('Task in Progress');
+        taskContainer.style.backgroundColor = 'rgba(214, 189, 0, 0.7)';
+        taskOption2.style.backgroundColor = 'rgba(97, 88, 87, 0.7)';
+        resetButtonColors();
+        previousClickedButton = taskOption2;
+    };
+
+    const taskIncomplete = () => {
+        console.log("Haven't even started");
+        taskContainer.style.backgroundColor = 'rgba(245, 71, 59, 0.7)';
+        taskOption1.style.backgroundColor = 'rgba(97, 88, 87, 0.7)';
+        resetButtonColors();
+        previousClickedButton = taskOption1;
+    };
 });
