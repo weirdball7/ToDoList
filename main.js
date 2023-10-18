@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var taskOption1;
     var taskOption2;
     var taskOption3;
+    var deleteBtn
     var previousClickedButton; // Store the previously clicked button
 
     // Add an event listener to the "Update" button
@@ -42,16 +43,22 @@ document.addEventListener('DOMContentLoaded', function() {
             taskOption3.textContent = "Done";
             taskOption3.classList.add("task-option3");
 
+            deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.classList.add("delete");
+
             // Add event listeners for the task buttons
             taskOption1.addEventListener('click', taskIncomplete);
             taskOption2.addEventListener('click', taskPending);
             taskOption3.addEventListener('click', taskComplete);
+            deleteBtn.addEventListener('click', deleteTask);
 
             // Append elements to the task container
             taskContainer.appendChild(taskDetail);
             taskContainer.appendChild(taskOption1);
             taskContainer.appendChild(taskOption2);
             taskContainer.appendChild(taskOption3);
+            taskContainer.appendChild(deleteBtn);
 
             // Append the new task container to the task list
             taskList.appendChild(taskContainer);
@@ -99,4 +106,10 @@ document.addEventListener('DOMContentLoaded', function() {
         resetButtonColors();
         previousClickedButton = taskOption1;
     };
+
+
+
+    const deleteTask = () => {
+        taskList.removeChild(taskContainer);
+    }
 });
